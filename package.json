@@ -1,0 +1,10 @@
+{
+  "name": "cronpeek",
+  "version": "1.0.0",
+  "description": "View your crontabs and see when they'll next fire — no more guessing what cron does",
+  "bin": { "cronpeek": "./cli.js" },
+  "files": ["cli.js", "src"],
+  "keywords": ["cron", "crontab", "schedule", "cli"],
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
