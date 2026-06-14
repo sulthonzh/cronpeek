@@ -2,8 +2,6 @@
 
 const { execSync } = require('child_process');
 
-// ── cron field parsing ──
-
 const MONTH_NAMES = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 const DAY_NAMES = ['sun','mon','tue','wed','thu','fri','sat'];
 
@@ -37,7 +35,6 @@ function parseField(raw, min, max, names) {
 }
 
 function parseCronLine(line) {
-  // Handle special strings
   const specials = {
     '@yearly':   '0 0 1 1 *',
     '@annually': '0 0 1 1 *',
@@ -84,11 +81,9 @@ function matchesField(values, current) {
 function getNextRun(job, from) {
   const start = new Date(from);
   start.setSeconds(0, 0);
-  // Search forward minute by minute, up to 366 days
   const limit = new Date(from);
   limit.setDate(limit.getDate() + 366);
   let d = new Date(start);
-  // Optimize: jump to next matching minute/hour
   for (let iter = 0; iter < 525960; iter++) { // 366*24*60
     if (matchesField(job.month, d.getMonth() + 1) &&
         matchesField(job.dayOfMonth, d.getDate()) &&
@@ -102,8 +97,6 @@ function getNextRun(job, from) {
   }
   return null;
 }
-
-// ── read crontab ──
 
 function readCrontab(user) {
   try {
@@ -125,8 +118,6 @@ function parseCrontab(lines) {
   }
   return jobs;
 }
-
-// ── formatting ──
 
 function formatRelativeTime(ms) {
   if (ms < 0) return 'now';
@@ -198,8 +189,6 @@ function formatMarkdown(jobs, now) {
   }
   return lines.join('\n') + '\n';
 }
-
-// ── CLI arg parsing ──
 
 function parseArgs(argv) {
   const args = { format: 'text', user: null };
