@@ -2,12 +2,33 @@
   "name": "@quadbyte/cronpeek",
   "version": "1.0.0",
   "description": "View your crontabs and see when they'll next fire — no more guessing what cron does",
-  "bin": { "cronpeek": "./cli.js" },
-  "files": ["cli.js", "src"],
-  "keywords": ["cron", "crontab", "schedule", "cli"],
+  "bin": {
+    "cronpeek": "./cli.js"
+  },
+  "files": [
+    "cli.js",
+    "src"
+  ],
+  "keywords": [
+    "cron",
+    "crontab",
+    "schedule",
+    "cli"
+  ],
   "license": "MIT",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sulthonzh/cronpeek"
+  },
+  "homepage": "https://github.com/sulthonzh/cronpeek#readme",
+  "bugs": {
+    "url": "https://github.com/sulthonzh/cronpeek/issues"
+  },
+  "author": "sulthonzh"
 }

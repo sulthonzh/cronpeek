@@ -6,3 +6,6 @@ __pycache__/
 .venv/
 *.egg-info/
 .mypy_cache/
+*.log
+.DS_Store
+coverage/
